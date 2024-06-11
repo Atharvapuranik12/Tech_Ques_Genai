@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume and Job Description Upload</title>
+    <style>
+        /* Loader style */
+        #loader {
+            border: 16px solid #87CEEB;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            display: none; /* Hidden by default */
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Your Resume and Job Description</h1>
+    <form action="/generate_questions" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+        <label for="resume">Upload Resume:</label><br>
+        <input type="file" id="resume" name="resume" accept=".pdf"><br><br>
+        <label for="job_description">Upload Job Description:</label><br>
+        <input type="file" id="job_description" name="job_description" accept=".pdf"><br><br>
+        <input type="submit" value="Generate Questions">
+    </form>
+
+    <!-- Loader element -->
+    <div id="loader"></div>
+
+    <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
